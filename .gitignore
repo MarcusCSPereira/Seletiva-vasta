@@ -1,0 +1,44 @@
+# Arquivos do Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.jekyll-metadata.lock
+
+# Shopify Theme Kit
+node_modules/
+config.yml
+dist/
+
+# Arquivos de logs e temporários
+*.log
+*.pid
+*.swp
+*.swo
+*.DS_Store
+*.bak
+
+# Cache do sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Arquivos gerados
+*.gem
+*.bundle
+*.tmp
+*.lock
+vendor/bundle/
+vendor/cache/
+vendor/gems/
+vendor/ruby/
+
+# Configurações do editor de código
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dependências do Ruby (se aplicável)
+.bundle/
+Gemfile.lock
