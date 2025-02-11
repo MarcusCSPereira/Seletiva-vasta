@@ -1,0 +1,43 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
+
+<section class="header">
+    <div class="container">
+        <div class="left">
+            <a href="/">
+                <img 
+                    src="{% if section.settings.logo != blank %}{{ section.settings.logo | image_url }}{% else %}{{ 'logo.svg' | asset_url }}{% endif %}" 
+                    alt="Logo" 
+                    width="139.36" 
+                    height="42">
+            </a>
+        </div>
+        <div class="center">
+            {{ 'search-bar.css' | asset_url | stylesheet_tag }}
+            {% render 'search-bar' %}
+        </div>
+        <div class="right">
+            {{ 'cart.css' | asset_url | stylesheet_tag }}
+            {% render 'cart-icon' %}
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Header",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo da Loja",
+            "info": "Se nenhuma logo for selecionada, a padrão 'Vasta' será usada."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Header"
+        }
+    ]
+}
+{% endschema %}

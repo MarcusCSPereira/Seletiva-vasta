@@ -1,0 +1,52 @@
+{{ 'navigation.css' | asset_url | stylesheet_tag }}
+
+<nav class="navigation">
+    <ul class="nav-menu">
+        {% for block in section.blocks %}
+            <li class="nav-item">
+                <a href="{{ block.settings.nav_link | default: '#' }}" class="nav-link">
+                    {{ block.settings.nav_text | default: 'Menu Item' }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+
+{% schema %}
+{
+    "name": "Navigation",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "menu_item",
+            "name": "Nav Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "nav_text",
+                    "label": "Texto do Item",
+                    "default": "Lorem Ipsum"
+                },
+                {
+                    "type": "url",
+                    "id": "nav_link",
+                    "label": "Link do Item"
+                }
+            ]
+        }
+    ],
+    "max_blocks": 5,
+    "presets": [
+        {
+            "name": "Navigation",
+            "blocks": [
+                { "type": "menu_item", "settings": { "nav_text": "Lorem Ipsum" } },
+                { "type": "menu_item", "settings": { "nav_text": "Lorem Ipsum" } },
+                { "type": "menu_item", "settings": { "nav_text": "Lorem Ipsum" } },
+                { "type": "menu_item", "settings": { "nav_text": "Lorem Ipsum" } },
+                { "type": "menu_item", "settings": { "nav_text": "All" } }
+            ]
+        }
+    ]
+}
+{% endschema %}

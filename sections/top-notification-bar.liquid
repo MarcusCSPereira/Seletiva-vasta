@@ -1,0 +1,48 @@
+{{ 'top-notification-bar.css' | asset_url | stylesheet_tag }}
+
+<section class="top-notification-bar">
+    <div class="container">
+        <div class="top-left">
+            <img src="{{ 'email.svg' | asset_url }}" alt="Email Icon" width="16" height="12">
+            <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>
+        </div>
+        <div class="top-center">
+            {{ section.settings.center_message }}
+        </div>
+        <div class="top-right">
+            <img src="{{ 'phone.svg' | asset_url }}" alt="Phone Icon" width="16" height="12">
+            <a href="tel:{{ section.settings.contact_phone }}">{{ section.settings.contact_phone }}</a>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Top Notification Bar",
+    "settings": [
+        {
+            "type": "text",
+            "id": "contact_email",
+            "label": "Email de Contato",
+            "default": "info@brand.com"
+        },
+        {
+            "type": "text",
+            "id": "contact_phone",
+            "label": "Número de Telefone",
+            "default": "+1 (111) 222-3333"
+        },
+        {
+            "type": "text",
+            "id": "center_message",
+            "label": "Mensagem Central",
+            "default": "WE PAY SHIPPING ON ORDERS OVER $X"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Top Notification Bar"
+        }
+    ]
+}
+{% endschema %}

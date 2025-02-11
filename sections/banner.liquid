@@ -1,0 +1,76 @@
+{{ 'banner.css' | asset_url | stylesheet_tag }}
+
+<section 
+    class="banner" 
+    style="background-image: url('{% if section.settings.banner_image != blank %}{{ section.settings.banner_image | image_url }}{% else %}{{ 'default-banner.svg' | asset_url }}{% endif %}');">
+    
+    <div class="banner-content">
+      <div class="stars-avaliation">
+        <p class="review">
+          WITH {{ section.settings.review_count }}+ {{ section.settings.star_count }}-STAR REVIEWS
+        </p>
+        <img src="{{ 'star-group' | append: section.settings.star_count | append: '.svg' | asset_url }}" 
+             alt="stars-group Icon" width="65.4" height="10.53">
+      </div>
+        <h1>{{ section.settings.banner_heading }}</h1>
+        <p class="subtitle">{{ section.settings.banner_text }}</p>
+        <a href="{{ section.settings.button_link }}" class="cta-button">{{ section.settings.button_text }}</a>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Imagem do Banner",
+      "info": "Selecione uma imagem para o fundo do banner."
+    },
+    {
+      "type": "number",
+      "id": "review_count",
+      "label": "Número de reviews",
+      "default": 1600
+    },
+    {
+      "type": "range",
+      "id": "star_count",
+      "label": "Número de estrelas",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Título do Banner",
+      "default": "Lorem ipsum dolor sit amet consectetur"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Texto do Banner",
+      "default": "Lorem ipsum dolor sit amet consectetur. Elit elementum rhoncus"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto do Botão",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link do Botão"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}
