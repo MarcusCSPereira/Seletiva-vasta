@@ -1,6 +1,216 @@
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="footer-section">
+    <div class="footer-container">
+      <div class="footer-left">
+        <!-- Logo e Newsletter -->
+        <div class="footer-column footer-newsletter">
+            <img src="{{ 'white-logo.svg' | asset_url }}" alt="Logo" class="footer-logo" width="169" height="50">
+            <p class="footer-newsletter-text">{{ section.settings.newsletter_text }}</p>
+            <div class="footer-newsletter-form">
+                <input type="email" placeholder="{{ section.settings.newsletter_placeholder }}" class="footer-input">
+                <button class="footer-button">{{ section.settings.newsletter_button }}</button>
+            </div>
+        </div>
+
+        <!-- Popular Collections -->
+        <div class="footer-column footer-collections">
+            <h4 class="footer-title">{{ section.settings.popular_collections_title }}</h4>
+            <div class="collections-container">
+                <div class="collection-card">
+                    <img src="{{ 'collection-1.png' | asset_url }}" alt="Collection 1" width="110" height="164">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div class="collection-card">
+                    <img src="{{ 'collection-2.png' | asset_url }}" alt="Collection 2" width="110" height="164">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div class="collection-card">
+                    <img src="{{ 'collection-3.png' | asset_url }}" alt="Collection 3" width="110" height="164">
+                    <p>Lorem Ipsum</p>
+                </div>
+                <div class="collection-card">
+                    <img src="{{ 'collection-3.png' | asset_url }}" alt="Collection 4" width="110" height="164">
+                    <p>Lorem Ipsum</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contato -->
+        <div class="footer-column footer-contact">
+            <h4 class="footer-title">{{ section.settings.contact_title }}</h4>
+          <div class="footer-contact-items">
+            <p class="footer-contact-item">
+                <img src="{{ 'phone.svg' | asset_url }}" alt="Phone Icon" class="footer-icon" width="13" height="12">
+                {{ section.settings.contact_phone }}
+            </p>
+            <p class="footer-contact-item">
+                <img src="{{ 'email.svg' | asset_url }}" alt="Email Icon" class="footer-icon"width="13" height="12">
+                {{ section.settings.contact_email }}
+            </p>
+            <p class="footer-contact-item">
+                <img src="{{ 'location.svg' | asset_url }}" alt="Location Icon" class="footer-icon" width="13" height="12">
+                {{ section.settings.contact_address }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <!-- Links do Footer -->
+      <div class="footer-right">
+        <div class="footer-links-main">
+          <div class="footer-column footer-links">
+              <h4 class="footer-title">{{ section.settings.information_title }}</h4>
+              <ul>
+                  <li><a href="#">{{ section.settings.link_about }}</a></li>
+                  <li><a href="#">{{ section.settings.link_blog }}</a></li>
+                  <li><a href="#">{{ section.settings.link_terms }}</a></li>
+                  <li><a href="#">{{ section.settings.link_privacy }}</a></li>
+              </ul>
+          </div>
+  
+          <div class="footer-column footer-links">
+              <h4 class="footer-title">{{ section.settings.customer_care_title }}</h4>
+              <ul>
+                  <li><a href="#">{{ section.settings.link_contact }}</a></li>
+                  <li><a href="#">{{ section.settings.link_terms }}</a></li>
+                  <li><a href="#">{{ section.settings.link_privacy }}</a></li>
+                  <li><a href="#">{{ section.settings.link_accessibility }}</a></li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="footer-payments-main">
+          <!-- Pagamentos -->
+          <div class="footer-payments">
+              <img src="{{ 'visa.svg' | asset_url }}" alt="Visa" width="70" height="44">
+              <img src="{{ 'amex.svg' | asset_url }}" alt="Amex" width="70" height="44">
+              <img src="{{ 'middle-card.svg' | asset_url }}" alt="Middle card" width="70" height="44">
+              <img src="{{ 'shopify-pay.svg' | asset_url }}" alt="Shopify Pay" width="70" height="44">
+              <img src="{{ 'ssl-secure.svg' | asset_url }}" alt="SSL Secure" width="70" height="44">
+          </div>
+      
+          <!-- Copyright -->
+          <div class="footer-bottom">
+              <p>{{ section.settings.copyright_text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+</footer>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "Newsletter Text",
+      "default": "Enter Your Email To Receive 15% Coupon Immediately"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Newsletter Placeholder",
+      "default": "Enter Email Address"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button",
+      "label": "Newsletter Button",
+      "default": "Give Me 15% OFF"
+    },
+    {
+      "type": "text",
+      "id": "popular_collections_title",
+      "label": "Popular Collections Title",
+      "default": "Popular Collections"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Title",
+      "default": "Get In Contact"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Phone",
+      "default": "+1 (715) 600-1564"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email",
+      "default": "info@clenchfitness.com"
+    },
+    {
+      "type": "text",
+      "id": "contact_address",
+      "label": "Address",
+      "default": "New Richmond, WI 54017"
+    },
+    {
+      "type": "text",
+      "id": "information_title",
+      "label": "Information Title",
+      "default": "Information"
+    },
+    {
+      "type": "text",
+      "id": "customer_care_title",
+      "label": "Customer Care Title",
+      "default": "Customer Care"
+    },
+    {
+      "type": "text",
+      "id": "link_about",
+      "label": "About Us Link",
+      "default": "About Us"
+    },
+    {
+      "type": "text",
+      "id": "link_blog",
+      "label": "Blog Link",
+      "default": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "link_terms",
+      "label": "Terms Link",
+      "default": "Terms of Service"
+    },
+    {
+      "type": "text",
+      "id": "link_privacy",
+      "label": "Privacy Link",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "text",
+      "id": "link_contact",
+      "label": "Contact Us Link",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "link_accessibility",
+      "label": "Accessibility Link",
+      "default": "Accessibility"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "Copyright © 2023 Clench Fitness. All Rights Reserved."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
 {% endschema %}

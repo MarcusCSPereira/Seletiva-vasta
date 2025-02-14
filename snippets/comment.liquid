@@ -1,0 +1,19 @@
+<div class="comment">
+    <div class="comment-persona">
+        <img src="{% if comment.image %}{{ comment.image | image_url }}{% else %}{{ 'default-user-1.svg' | asset_url }}{% endif %}" 
+             alt="{{ comment.name }}" class="comment-image" width="65" height="65">
+        <div class="comment-text">
+            <p class="comment-name">{% if comment.name != blank %}{{ comment.name }}{% else %}John R.{% endif %}</p>
+            <div class="comment-stars">
+                {% for i in (1..5) %}
+                    {% if i <= comment.stars %}
+                        <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                    {% else %}
+                        <img src="{{ 'star-empty.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <p class="comment-review">{% if comment.text != blank %}{{ comment.text }}{% else %}Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio{% endif %}</p>
+</div>

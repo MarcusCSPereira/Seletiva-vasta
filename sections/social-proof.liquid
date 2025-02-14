@@ -1,0 +1,141 @@
+{{ 'social-proof.css' | asset_url | stylesheet_tag }}
+
+<section class="social-proof-section">
+    <!-- Bloco de Texto -->
+    <div class="social-proof-text">
+        <h2 class="social-proof-heading">{{ section.settings.heading }}</h2>
+        <p class="social-proof-paragraph">{{ section.settings.paragraph }}</p>
+        <a href="{{ section.settings.button_link }}" class="cta-button">
+            {{ section.settings.button_text }}
+        </a>
+    </div>
+
+    <!-- Bloco de Comentários -->
+    <div class="social-proof-comments">
+        {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+                <div class="comment">
+                    <div class="comment-persona">
+                        <img src="{% if block.settings.image %}{{ block.settings.image | image_url }}{% else %}{{ 'default-user-1.svg' | asset_url }}{% endif %}" 
+                             alt="{{ block.settings.name }}" class="comment-image" width="65" height="65">
+                        <div class="comment-text">
+                            <p class="comment-name">{% if block.settings.name != blank %}{{ block.settings.name }}{% else %}John R.{% endif %}</p>
+                            <div class="comment-stars">
+                                {% for i in (1..5) %}
+                                    {% if i <= block.settings.stars %}
+                                        <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                                    {% else %}
+                                        <img src="{{ 'star-empty.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="comment-review">{% if block.settings.text != blank %}{{ block.settings.text }}{% else %}Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio{% endif %}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- Comentários padrão quando não há personalização -->
+            <div class="comment">
+                <div class="comment-persona">
+                    <img src="{{ 'default-user-1.svg' | asset_url }}" alt="John R." class="comment-image" width="65" height="65">
+                    <div class="comment-text">
+                        <p class="comment-name">John R.</p>
+                        <div class="comment-stars">
+                            {% for i in (1..5) %}
+                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <p class="comment-review">Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio.</p>
+            </div>
+
+            <div class="comment">
+                <div class="comment-persona">
+                    <img src="{{ 'default-user-2.svg' | asset_url }}" alt="Jane D." class="comment-image" width="65" height="65">
+                    <div class="comment-text">
+                        <p class="comment-name">Jane D.</p>
+                        <div class="comment-stars">
+                            {% for i in (1..4) %}
+                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                            {% endfor %}
+                            <img src="{{ 'star-empty.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                        </div>
+                    </div>
+                </div>
+                <p class="comment-review">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Social Proof",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Cherished Favorites"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Descrição",
+      "default": "Explore the Harmony of Exceptional Quality and Customer Praise"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto do Botão",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link do Botão"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comment",
+      "name": "Comentário",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagem do Usuário"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nome do Usuário",
+          "default": "John R."
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Número de Estrelas",
+          "min": 1,
+          "max": 5,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Comentário",
+          "default": "Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Social Proof"
+    }
+  ]
+}
+{% endschema %}

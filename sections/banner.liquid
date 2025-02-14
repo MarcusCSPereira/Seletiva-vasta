@@ -7,7 +7,7 @@
     <div class="banner-content">
       <div class="stars-avaliation">
         <p class="review">
-          WITH {{ section.settings.review_count }}+ {{ section.settings.star_count }}-STAR REVIEWS
+          WITH {{ section.settings.star_count }}+ 5-STAR REVIEWS
         </p>
         <img src="{{ 'star-group' | append: section.settings.star_count | append: '.svg' | asset_url }}" 
              alt="stars-group Icon" width="65.4" height="10.53">
@@ -27,12 +27,6 @@
       "id": "banner_image",
       "label": "Imagem do Banner",
       "info": "Selecione uma imagem para o fundo do banner."
-    },
-    {
-      "type": "number",
-      "id": "review_count",
-      "label": "Número de reviews",
-      "default": 1600
     },
     {
       "type": "range",

@@ -1,0 +1,47 @@
+{{ 'faqs.css' | asset_url | stylesheet_tag }}
+
+<section class="faqs-section">
+    <div class="faqs-container">
+        <h2 class="faqs-title">{{ section.settings.faqs_title }}</h2>
+      <div class="faqs-text-container">
+        <p class="faqs-text">{{ section.settings.faqs_description }}</p>
+        <a href="{{ section.settings.faqs_link }}" class="faqs-button">{{ section.settings.faqs_button_text }}</a>
+      </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQs Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "faqs_title",
+      "label": "Title",
+      "default": "Vasta Essence: Dive into Our World"
+    },
+    {
+      "type": "textarea",
+      "id": "faqs_description",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "type": "url",
+      "id": "faqs_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "faqs_button_text",
+      "label": "Button Text",
+      "default": "SEE MORE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs Section"
+    }
+  ]
+}
+{% endschema %}

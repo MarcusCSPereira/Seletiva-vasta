@@ -1,0 +1,195 @@
+{{ 'review.css' | asset_url | stylesheet_tag }}
+
+<section class="review-section">
+    <div class="review-header">
+        <h2 class="review-title">{{ section.settings.title }}</h2>
+        <div class="review-subtitle">
+            <p>{{ section.settings.subtitle }}</p>
+            <div class="stars">
+                {% for i in (1..5) %}
+                    <span class="star">&#9733;</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="review-container">
+        {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+                <div class="review-card">
+                    <img src="{% if block.settings.person_image %}{{ block.settings.person_image | image_url }}{% else %}{{ 'person-1.svg' | asset_url }}{% endif %}" 
+                         alt="{{ block.settings.person_name }}" class="review-image" width="215" height="306">
+                    <div class="review-content">
+                        <h3 class="review-name">{{ block.settings.person_name }}</h3>
+                        <p class="review-location">{{ block.settings.person_location }}</p>
+                        <div class="stars">
+                            {% for i in (1..5) %}
+                                {% if i <= block.settings.stars %}
+                                    <span class="star">&#9733;</span>
+                                {% else %}
+                                    <span class="star star-empty">&#9734;</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <p class="review-comment">
+                            {{ block.settings.review_text }}
+                        </p>
+                        <div class="review-divider"></div>
+                        <div class="review-product">
+                            <img src="{{ 'review-base-product.svg' | asset_url }}" alt="Product Name" class="review-product-image" width="38" height="28">
+                            <p class="product-name">Product Name</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- Se não houver reviews adicionados, exibir 4 padrões manualmente -->
+            <div class="review-card">
+                <img src="{{ 'person-1.svg' | asset_url }}" alt="Default Person" class="review-image" width="215" height="306">
+                <div class="review-content">
+                    <h3 class="review-name">Louise S.</h3>
+                    <p class="review-location">United States</p>
+                    <div class="stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-comment">Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio. </p>
+                    <div class="review-divider"></div>
+                    <div class="review-product">
+                        <img src="{{ 'review-base-product.svg' | asset_url }}" alt="Product" class="review-product-image" width="38" height="28">
+                        <p class="product-name">Product Name</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <img src="{{ 'person-2.svg' | asset_url }}" alt="Default Person" class="review-image" width="215" height="306">
+                <div class="review-content">
+                    <h3 class="review-name">Josh B.</h3>
+                    <p class="review-location">United States</p>
+                    <div class="stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-comment">Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio. </p>
+                    <div class="review-divider"></div>
+                    <div class="review-product">
+                        <img src="{{ 'review-base-product.svg' | asset_url }}" alt="Product" class="review-product-image" width="38" height="28">
+                        <p class="product-name">Product Name</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <img src="{{ 'person-3.svg' | asset_url }}" alt="Default Person" class="review-image" width="215" height="306">
+                <div class="review-content">
+                    <h3 class="review-name">Kate S.</h3>
+                    <p class="review-location">United States</p>
+                    <div class="stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-comment">Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio. </p>
+                    <div class="review-divider"></div>
+                    <div class="review-product">
+                        <img src="{{ 'review-base-product.svg' | asset_url }}" alt="Product" class="review-product-image" width="38" height="28">
+                        <p class="product-name">Product Name</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <img src="{{ 'person-4.svg' | asset_url }}" alt="Default Person" class="review-image" width="215" height="306">
+                <div class="review-content">
+                    <h3 class="review-name">Mike H.</h3>
+                    <p class="review-location">United States</p>
+                    <div class="stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-comment">Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio. </p>
+                    <div class="review-divider"></div>
+                    <div class="review-product">
+                        <img src="{{ 'review-base-product.svg' | asset_url }}" alt="Product" class="review-product-image" width="38" height="28">
+                        <p class="product-name">Product Name</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Label para escolha de páginas -->
+    <div class="pagination-label">
+        <span>1 2 3 ... {{ section.settings.total_pages }}   > </span>
+    </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Customer Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Real Reviews, Real Experiences"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "With 1600+ 5-star reviews"
+    },
+    {
+      "type": "range",
+      "id": "total_pages",
+      "label": "Total Pages",
+      "min": 1,
+      "max": 30,
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "person_image",
+          "label": "Person image"
+        },
+        {
+          "type": "text",
+          "id": "person_name",
+          "label": "Person Name",
+          "default": "John B."
+        },
+        {
+          "type": "text",
+          "id": "person_location",
+          "label": "Person Country",
+          "default": "United States"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Stars number",
+          "min": 1,
+          "max": 5,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "Customer Reviews"
+    }
+  ]
+}
+{% endschema %}

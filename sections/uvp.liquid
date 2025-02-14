@@ -1,0 +1,94 @@
+{{ 'uvp.css' | asset_url | stylesheet_tag }}
+
+<section class="uvp-section">
+    <h2 class="uvp-title">{{ section.settings.uvp_title }}</h2>
+    <div class="uvp-container">
+        {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+                <div class="uvp-item">
+                    <img 
+                        src="{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 74, height: 74 }}{% else %}
+                            {% case forloop.index %}
+                                {% when 1 %}{{ 'uvp-icon-1.svg' | asset_url }}
+                                {% when 2 %}{{ 'uvp-icon-2.svg' | asset_url }}
+                                {% when 3 %}{{ 'uvp-icon-3.svg' | asset_url }}
+                                {% when 4 %}{{ 'uvp-icon-4.svg' | asset_url }}
+                                {% else %}{{ 'uvp-icon-1.svg' | asset_url }}
+                            {% endcase %}
+                        {% endif %}" 
+                        alt="{{ block.settings.subtitle }}" 
+                        class="uvp-icon" 
+                        width="74"  
+                        height="74"
+                    >
+                    <p class="uvp-text">{{ block.settings.subtitle }}</p>
+                </div>
+                {% unless forloop.last %}
+                    <div class="divider"></div>
+                {% endunless %}
+            {% endfor %}
+        {% else %}
+            <!-- Itens padrão caso o usuário não tenha adicionado nada -->
+            {% for i in (1..4) %}
+                <div class="uvp-item">
+                    <img 
+                        src="{{ 'uvp-icon-' | append: i | append: '.svg' | asset_url }}" 
+                        alt="Ícone Padrão {{ i }}" 
+                        class="uvp-icon" 
+                        width="74" 
+                        height="74"
+                    >
+                    <p class="uvp-text">Lorem Ipsum Dolor Sit Amet Consectetur</p>
+                </div>
+                {% unless forloop.last %}
+                    <div class="divider"></div>
+                {% endunless %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "UVP Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "uvp_title",
+      "label": "Título da Seção",
+      "default": "Shop Smarter, Shop With Vasta"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "uvp_item",
+      "name": "Item da UVP",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Ícone (Tamanho recomendado: 74x74px)"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Texto abaixo do ícone",
+          "default": "Lorem Ipsum Dolor Sit Amet Consectetur"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "UVP Section",
+      "blocks": [
+        { "type": "uvp_item" },
+        { "type": "uvp_item" },
+        { "type": "uvp_item" },
+        { "type": "uvp_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

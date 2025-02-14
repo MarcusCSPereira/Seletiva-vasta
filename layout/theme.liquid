@@ -15,7 +15,6 @@
 
     {{ content_for_header }}
     
-    <!-- Importando os estilos -->
     <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}"/>
     
   </head>
@@ -28,22 +27,16 @@
       }
     </style>
 
-    <!-- Importando scripts -->
     <script src="{{ 'script.js' | asset_url }}" defer></script>
 
-    <!-- Top Notifications --!>
     {% section 'top-notification-bar' %}
     
-    <!-- Header da loja -->
     {% section 'header' %}
 
     {% section 'navigation' %}
 
-    <!-- Conteúdo da página -->
     {{ content_for_layout }}
-    
 
-    <!-- Footer da loja -->
     {% section 'footer' %}
   </body>
 </html>
