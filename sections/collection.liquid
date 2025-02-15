@@ -1,17 +1,17 @@
 {{ 'collection-slider.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'collection-slider.js' | asset_url }}" defer></script>
 
-<section class="shop-by-collection">
-    <h2 class="collection-title">{{ section.settings.carousel_title }}</h2>
+<section class="shop-by-collection scroll-reveal">
+    <h2 class="collection-title scroll-reveal">{{ section.settings.carousel_title }}</h2>
     
     <div class="carousel-container">
       <div class="carousel">
-        <button class="arrow left-arrow" id="prevSlide">
+        <button class="arrow left-arrow scroll-reveal" id="prevSlide">
             <img src="{{ 'arrow-left.svg' | asset_url }}" alt="Previous" width="43" height="43">
         </button>
 
             {% for block in section.blocks %}
-                <div class="collection-item">
+                <div class="collection-item scroll-reveal">
                     <img 
                         src="{% if block.settings.image != blank %}{{ block.settings.image | image_url }}{% else %}
                             {% case forloop.index %}
@@ -27,13 +27,13 @@
                         height="363" 
                         class="lazy-load"
                     >
-                    <div class="collection-overlay">
-                        <p class="collection-title">{{ block.settings.text }}</p>
+                    <div class="collection-overlay scroll-reveal">
+                        <p class="collection-title scroll-reveal" >{{ block.settings.text }}</p>
                     </div>
                 </div>
             {% endfor %}
 
-        <button class="arrow right-arrow" id="nextSlide">
+        <button class="arrow right-arrow scroll-reveal" id="nextSlide">
             <img src="{{ 'arrow-right.svg' | asset_url }}" alt="Next" width="43" height="43">
         </button>
       </div>
@@ -42,29 +42,29 @@
 
 {% schema %}
 {
-  "name": "Carousel de Coleções",
+  "name": "Collection Carousel",
   "settings": [
     {
       "type": "text",
       "id": "carousel_title",
-      "label": "Título do Carousel",
+      "label": "Carousel Title",
       "default": "Shop by Collection"
     }
   ],
   "blocks": [
     {
       "type": "image",
-      "name": "Item do Carousel",
+      "name": "Carousel Item",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Imagem do item (Tamanho recomendado: 243x363px)"
+          "label": "Item Image (Recommended size: 243x363px)"
         },
         {
           "type": "text",
           "id": "text",
-          "label": "Texto sobre a imagem",
+          "label": "Image Caption",
           "default": "Lorem Ipsum"
         }
       ]
@@ -73,7 +73,7 @@
   "max_blocks": 10,
   "presets": [
     {
-      "name": "Carousel de Coleções"
+      "name": "Collection Carousel"
     }
   ]
 }

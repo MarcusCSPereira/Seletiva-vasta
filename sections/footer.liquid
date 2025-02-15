@@ -1,105 +1,98 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
 
-<footer class="footer-section">
-    <div class="footer-container">
-      <div class="footer-left">
-        <!-- Logo e Newsletter -->
-        <div class="footer-column footer-newsletter">
-            <img src="{{ 'white-logo.svg' | asset_url }}" alt="Logo" class="footer-logo" width="169" height="50">
-            <p class="footer-newsletter-text">{{ section.settings.newsletter_text }}</p>
-            <div class="footer-newsletter-form">
-                <input type="email" placeholder="{{ section.settings.newsletter_placeholder }}" class="footer-input">
-                <button class="footer-button">{{ section.settings.newsletter_button }}</button>
+<footer class="footer-section scroll-reveal">
+    <div class="footer-container scroll-reveal">
+        <div class="footer-left">
+            <div class="footer-column footer-newsletter scroll-reveal">
+                <img src="{{ 'white-logo.svg' | asset_url }}" alt="Logo" class="footer-logo" width="169" height="50">
+                <p class="footer-newsletter-text">{{ section.settings.newsletter_text }}</p>
+                <div class="footer-newsletter-form">
+                    <input type="email" placeholder="{{ section.settings.newsletter_placeholder }}" class="footer-input">
+                    <button class="footer-button scroll-reveal"> {{ section.settings.newsletter_button }}</button>
+                </div>
+            </div>
+
+            <div class="footer-column footer-collections scroll-reveal">
+                <h4 class="footer-title">{{ section.settings.popular_collections_title }}</h4>
+                <div class="collections-container">
+                    <div class="collection-card scroll-reveal">
+                        <img src="{{ 'collection-1.png' | asset_url }}" alt="Collection 1" width="110" height="164">
+                        <p>Lorem Ipsum</p>
+                    </div>
+                    <div class="collection-card scroll-reveal">
+                        <img src="{{ 'collection-2.png' | asset_url }}" alt="Collection 2" width="110" height="164">
+                        <p>Lorem Ipsum</p>
+                    </div>
+                    <div class="collection-card scroll-reveal">
+                        <img src="{{ 'collection-3.png' | asset_url }}" alt="Collection 3" width="110" height="164">
+                        <p>Lorem Ipsum</p>
+                    </div>
+                    <div class="collection-card scroll-reveal">
+                        <img src="{{ 'collection-4.png' | asset_url }}" alt="Collection 4" width="110" height="164">
+                        <p>Lorem Ipsum</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-column footer-contact scroll-reveal">
+                <h4 class="footer-title">{{ section.settings.contact_title }}</h4>
+                <div class="footer-contact-items">
+                    <p class="footer-contact-item">
+                        <img src="{{ 'phone.svg' | asset_url }}" alt="Phone Icon" class="footer-icon" width="13" height="12">
+                        {{ section.settings.contact_phone }}
+                    </p>
+                    <p class="footer-contact-item">
+                        <img src="{{ 'email.svg' | asset_url }}" alt="Email Icon" class="footer-icon" width="13" height="12">
+                        {{ section.settings.contact_email }}
+                    </p>
+                    <p class="footer-contact-item">
+                        <img src="{{ 'location.svg' | asset_url }}" alt="Location Icon" class="footer-icon" width="13" height="12">
+                        {{ section.settings.contact_address }}
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- Popular Collections -->
-        <div class="footer-column footer-collections">
-            <h4 class="footer-title">{{ section.settings.popular_collections_title }}</h4>
-            <div class="collections-container">
-                <div class="collection-card">
-                    <img src="{{ 'collection-1.png' | asset_url }}" alt="Collection 1" width="110" height="164">
-                    <p>Lorem Ipsum</p>
+        <div class="footer-right">
+            <div class="footer-links-main">
+                <div class="footer-column footer-links scroll-reveal">
+                    <h4 class="footer-title">{{ section.settings.information_title }}</h4>
+                    <ul>
+                        <li><a href="#">{{ section.settings.link_about }}</a></li>
+                        <li><a href="#">{{ section.settings.link_blog }}</a></li>
+                        <li><a href="#">{{ section.settings.link_terms }}</a></li>
+                        <li><a href="#">{{ section.settings.link_privacy }}</a></li>
+                    </ul>
                 </div>
-                <div class="collection-card">
-                    <img src="{{ 'collection-2.png' | asset_url }}" alt="Collection 2" width="110" height="164">
-                    <p>Lorem Ipsum</p>
+
+                <div class="divider-links"></div>
+
+                <div class="footer-column footer-links scroll-reveal">
+                    <h4 class="footer-title">{{ section.settings.customer_care_title }}</h4>
+                    <ul>
+                        <li><a href="#">{{ section.settings.link_contact }}</a></li>
+                        <li><a href="#">{{ section.settings.link_terms }}</a></li>
+                        <li><a href="#">{{ section.settings.link_privacy }}</a></li>
+                        <li><a href="#">{{ section.settings.link_accessibility }}</a></li>
+                    </ul>
                 </div>
-                <div class="collection-card">
-                    <img src="{{ 'collection-3.png' | asset_url }}" alt="Collection 3" width="110" height="164">
-                    <p>Lorem Ipsum</p>
+            </div>
+
+            <div class="footer-payments-main scroll-reveal">
+                <div class="footer-payments">
+                    <img src="{{ 'visa.svg' | asset_url }}" alt="Visa" width="70" height="44">
+                    <img src="{{ 'amex.svg' | asset_url }}" alt="Amex" width="70" height="44">
+                    <img src="{{ 'middle-card.svg' | asset_url }}" alt="Middle card" width="70" height="44">
+                    <img src="{{ 'shopify-pay.svg' | asset_url }}" alt="Shopify Pay" width="70" height="44">
+                    <img src="{{ 'ssl-secure.svg' | asset_url }}" alt="SSL Secure" width="70" height="44">
                 </div>
-                <div class="collection-card">
-                    <img src="{{ 'collection-3.png' | asset_url }}" alt="Collection 4" width="110" height="164">
-                    <p>Lorem Ipsum</p>
+
+                <div class="footer-bottom scroll-reveal">
+                    <p>{{ section.settings.copyright_text }}</p>
                 </div>
             </div>
         </div>
-
-        <!-- Contato -->
-        <div class="footer-column footer-contact">
-            <h4 class="footer-title">{{ section.settings.contact_title }}</h4>
-          <div class="footer-contact-items">
-            <p class="footer-contact-item">
-                <img src="{{ 'phone.svg' | asset_url }}" alt="Phone Icon" class="footer-icon" width="13" height="12">
-                {{ section.settings.contact_phone }}
-            </p>
-            <p class="footer-contact-item">
-                <img src="{{ 'email.svg' | asset_url }}" alt="Email Icon" class="footer-icon"width="13" height="12">
-                {{ section.settings.contact_email }}
-            </p>
-            <p class="footer-contact-item">
-                <img src="{{ 'location.svg' | asset_url }}" alt="Location Icon" class="footer-icon" width="13" height="12">
-                {{ section.settings.contact_address }}
-            </p>
-          </div>
-        </div>
-      </div>
-
-        <!-- Links do Footer -->
-      <div class="footer-right">
-        <div class="footer-links-main">
-          <div class="footer-column footer-links">
-              <h4 class="footer-title">{{ section.settings.information_title }}</h4>
-              <ul>
-                  <li><a href="#">{{ section.settings.link_about }}</a></li>
-                  <li><a href="#">{{ section.settings.link_blog }}</a></li>
-                  <li><a href="#">{{ section.settings.link_terms }}</a></li>
-                  <li><a href="#">{{ section.settings.link_privacy }}</a></li>
-              </ul>
-          </div>
-
-          <div class="divider-links"></div>
-  
-          <div class="footer-column footer-links">
-              <h4 class="footer-title">{{ section.settings.customer_care_title }}</h4>
-              <ul>
-                  <li><a href="#">{{ section.settings.link_contact }}</a></li>
-                  <li><a href="#">{{ section.settings.link_terms }}</a></li>
-                  <li><a href="#">{{ section.settings.link_privacy }}</a></li>
-                  <li><a href="#">{{ section.settings.link_accessibility }}</a></li>
-              </ul>
-          </div>
-        </div>
-
-        <div class="footer-payments-main">
-          <!-- Pagamentos -->
-          <div class="footer-payments">
-              <img src="{{ 'visa.svg' | asset_url }}" alt="Visa" width="70" height="44">
-              <img src="{{ 'amex.svg' | asset_url }}" alt="Amex" width="70" height="44">
-              <img src="{{ 'middle-card.svg' | asset_url }}" alt="Middle card" width="70" height="44">
-              <img src="{{ 'shopify-pay.svg' | asset_url }}" alt="Shopify Pay" width="70" height="44">
-              <img src="{{ 'ssl-secure.svg' | asset_url }}" alt="SSL Secure" width="70" height="44">
-          </div>
-      
-          <!-- Copyright -->
-          <div class="footer-bottom">
-              <p>{{ section.settings.copyright_text }}</p>
-          </div>
-        </div>
-      </div>
     </div>
-      
 </footer>
 
 {% schema %}

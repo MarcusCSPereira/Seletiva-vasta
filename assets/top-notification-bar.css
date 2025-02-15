@@ -5,11 +5,19 @@
     padding: 10px 0;
     width: 100%;
     position: relative;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInSlideDown 0.8s ease-out forwards;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .top-notification-bar .container {
@@ -19,6 +27,7 @@ a {
     position: relative;
     width: 100%;
 }
+
 .top-left, .top-right {
     position: absolute;
     top: 50%;
@@ -33,16 +42,28 @@ a {
     right: 10px;
 }
 
+.top-left:hover, .top-right:hover {
+    transform: translateY(-50%) scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.top-left a:hover, .top-right a:hover {
+}
+
+@keyframes fadeInSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @media screen and (max-width: 1024px) {
-    .top-right a {
+    .top-right a, .top-left a {
         display: none;
-        margin-right: 30px;
+        margin: 0 30px;
     }
-
-    .top-left a{
-      display:none;
-      margin-left:30px;
-    }
-
 }

@@ -145,3 +145,46 @@
         font-size: 12px
     }
 }
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faqs-button {
+    font-family: DM Sans, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+    text-decoration: underline;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+    animation: pulseButton 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.08);
+        opacity: 0.9;
+    }
+}
+
+.faqs-button:hover {
+    color: #252525;
+    text-decoration: none;
+    transform: scale(1.12);
+    transition: transform 0.2s ease-in-out;
+}
+

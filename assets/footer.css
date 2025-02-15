@@ -516,3 +516,58 @@
         font-size: 12px
     }
 }
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-button {
+    animation: pulseButton 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.07);
+        opacity: 0.9;
+    }
+}
+
+.footer-button:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.collection-card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.collection-card:hover {
+    transform: scale(1.08);
+}
+
+.footer-payments img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-payments img:hover {
+    transform: scale(1.1);
+}
+
+.footer-contact-item img {
+    transition: filter 0.3s ease-in-out;
+}
+
+.footer-contact-item:hover img {
+    filter: brightness(1.5);
+}

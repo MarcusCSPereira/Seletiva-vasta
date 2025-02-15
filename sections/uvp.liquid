@@ -1,11 +1,11 @@
 {{ 'uvp.css' | asset_url | stylesheet_tag }}
 
-<section class="uvp-section">
-    <h2 class="uvp-title">{{ section.settings.uvp_title }}</h2>
+<section class="uvp-section scroll-reveal">
+    <h2 class="uvp-title scroll-reveal">{{ section.settings.uvp_title }}</h2>
     <div class="uvp-container">
         {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
-                <div class="uvp-item">
+                <div class="uvp-item scroll-reveal">
                     <img 
                         src="{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 74, height: 74 }}{% else %}
                             {% case forloop.index %}
@@ -24,13 +24,12 @@
                     <p class="uvp-text">{{ block.settings.subtitle }}</p>
                 </div>
                 {% unless forloop.last %}
-                    <div class="divider"></div>
+                    <div class="divider scroll-reveal"></div>
                 {% endunless %}
             {% endfor %}
         {% else %}
-            <!-- Itens padrão caso o usuário não tenha adicionado nada -->
             {% for i in (1..4) %}
-                <div class="uvp-item">
+                <div class="uvp-item scroll-reveal">
                     <img 
                         src="{{ 'uvp-icon-' | append: i | append: '.svg' | asset_url }}" 
                         alt="Ícone Padrão {{ i }}" 
@@ -41,7 +40,7 @@
                     <p class="uvp-text">Lorem Ipsum Dolor Sit Amet Consectetur</p>
                 </div>
                 {% unless forloop.last %}
-                    <div class="divider"></div>
+                    <div class="divider scroll-reveal"></div>
                 {% endunless %}
             {% endfor %}
         {% endif %}
@@ -55,24 +54,24 @@
     {
       "type": "text",
       "id": "uvp_title",
-      "label": "Título da Seção",
+      "label": "Section Title",
       "default": "Shop Smarter, Shop With Vasta"
     }
   ],
   "blocks": [
     {
       "type": "uvp_item",
-      "name": "Item da UVP",
+      "name": "UVP Item",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Ícone (Tamanho recomendado: 74x74px)"
+          "label": "Icon (Recommended size: 74x74px)"
         },
         {
           "type": "text",
           "id": "subtitle",
-          "label": "Texto abaixo do ícone",
+          "label": "Text below the icon",
           "default": "Lorem Ipsum Dolor Sit Amet Consectetur"
         }
       ]

@@ -1,8 +1,7 @@
 {{ 'social-proof.css' | asset_url | stylesheet_tag }}
 
-<section class="social-proof-section">
-    <!-- Bloco de Texto -->
-    <div class="social-proof-text">
+<section class="social-proof-section scroll-reveal">
+    <div class="social-proof-text scroll-reveal">
         <h2 class="social-proof-heading">{{ section.settings.heading }}</h2>
         <p class="social-proof-paragraph">{{ section.settings.paragraph }}</p>
         <a href="{{ section.settings.button_link }}" class="cta-button">
@@ -10,11 +9,10 @@
         </a>
     </div>
 
-    <!-- Bloco de Comentários -->
-    <div class="social-proof-comments">
+    <div class="social-proof-comments scroll-reveal">
         {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
-                <div class="comment-{{ forloop.index }}">
+                <div class="comment-{{ forloop.index }} scroll-reveal">
                     <div class="comment">
                         <div class="comment-persona">
                             <img src="{% if block.settings.image %}{{ block.settings.image | image_url }}{% else %}{{ 'default-user-1.svg' | asset_url }}{% endif %}" 
@@ -32,12 +30,12 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="comment-review">{% if block.settings.text != blank %}{{ block.settings.text }}{% else %}Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio{% endif %}</p>
+                        <p class="comment-review">{% if block.settings.text != blank %}{{ block.settings.text }}{% else %}Lorem ipsum dolor sit amet consectetur.{% endif %}</p>
                     </div>
                 </div>
             {% endfor %}
         {% else %}
-          <div class="comment-1">
+          <div class="comment-1 scroll-reveal">
             <div class="comment">
                 <div class="comment-persona">
                     <img src="{{ 'default-user-1.svg' | asset_url }}" alt="John R." class="comment-image" width="65" height="65">
@@ -50,11 +48,11 @@
                         </div>
                     </div>
                 </div>
-                <p class="comment-review">Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio.</p>
+                <p class="comment-review">Lorem ipsum dolor sit amet consectetur.</p>
             </div>
           </div>
 
-          <div class="comment-2">
+          <div class="comment-2 scroll-reveal">
             <div class="comment">
                 <div class="comment-persona">
                     <img src="{{ 'default-user-2.svg' | asset_url }}" alt="Jane D." class="comment-image" width="65" height="65">
@@ -82,47 +80,47 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Título",
+      "label": "Title",
       "default": "Cherished Favorites"
     },
     {
       "type": "textarea",
       "id": "paragraph",
-      "label": "Descrição",
+      "label": "Description",
       "default": "Explore the Harmony of Exceptional Quality and Customer Praise"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Texto do Botão",
+      "label": "Button Text",
       "default": "View More"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Link do Botão"
+      "label": "Button Link"
     }
   ],
   "blocks": [
     {
       "type": "comment",
-      "name": "Comentário",
+      "name": "Comment",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Imagem do Usuário"
+          "label": "User Image (Recommended size: 65x65px)"
         },
         {
           "type": "text",
           "id": "name",
-          "label": "Nome do Usuário",
+          "label": "User Name",
           "default": "John R."
         },
         {
           "type": "range",
           "id": "stars",
-          "label": "Número de Estrelas",
+          "label": "Number of Stars",
           "min": 1,
           "max": 5,
           "default": 5
@@ -130,7 +128,7 @@
         {
           "type": "textarea",
           "id": "text",
-          "label": "Comentário",
+          "label": "Comment",
           "default": "Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio."
         }
       ]

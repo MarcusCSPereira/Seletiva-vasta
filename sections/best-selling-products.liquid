@@ -1,10 +1,10 @@
 {{ 'best-selling-products.css' | asset_url | stylesheet_tag }}
 
-<section class="best-selling-products">
-    <h2 class="section-title">{{ section.settings.title }}</h2>
-    <div class="products-container">
+<section class="best-selling-products scroll-reveal">
+    <h2 class="section-title scroll-reveal">{{ section.settings.title }}</h2>
+    <div class="products-container scroll-reveal">
         {% for block in section.blocks %}
-            <div class="product-card">
+            <div class="product-card scroll-reveal">
                 <div class="product-image">
                     <img src="{% if block.settings.image %}{{ block.settings.image | image_url }}{% else %}{{ 'placeholder-product.svg' | asset_url }}{% endif %}" 
                          alt="{{ block.settings.product_name }}" width="274" height="304">
@@ -15,7 +15,7 @@
                         <div class="stars">
                             {% for i in (1..5) %}
                                 {% if i <= block.settings.stars %}
-                                    <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15">
+                                    <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15" class="glowing-star">
                                 {% else %}
                                     <img src="{{ 'star-empty.svg' | asset_url }}" alt="Star" width="15" height="15">
                                 {% endif %}
@@ -27,7 +27,7 @@
             </div>
         {% else %}
             <!-- Produtos Padrão -->
-            <div class="product-card">
+            <div class="product-card scroll-reveal">
                 <div class="product-image">
                     <img src="{{ 'default-product-1.svg' | asset_url }}" alt="Product" width="274" height="304">
                 </div>
@@ -36,14 +36,14 @@
                     <div class="product-rating">
                         <div class="stars">
                             {% for i in (1..5) %}
-                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15">
+                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15" class="glowing-star">
                             {% endfor %}
                         </div>
                         <p class="review-text">(5.0 of 800 Reviews)</p>
                     </div>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card scroll-reveal">
                 <div class="product-image">
                     <img src="{{ 'default-product-2.svg' | asset_url }}" alt="Product" width="274" height="304">
                 </div>
@@ -52,14 +52,14 @@
                     <div class="product-rating">
                         <div class="stars">
                             {% for i in (1..5) %}
-                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15"> 
+                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15" class="glowing-star"> 
                             {% endfor %}
                         </div>
                         <p class="review-text">(4.8 of 650 Reviews)</p>
                     </div>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card scroll-reveal">
                 <div class="product-image">
                     <img src="{{ 'default-product-3.svg' | asset_url }}" alt="Product" width="274" height="304">
                 </div>
@@ -68,14 +68,14 @@
                     <div class="product-rating">
                         <div class="stars">
                             {% for i in (1..5) %}
-                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15"> 
+                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15" class="glowing-star"> 
                             {% endfor %}
                         </div>
                         <p class="review-text">(5.0 of 800 Reviews)</p>
                     </div>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card scroll-reveal">
                 <div class="product-image">
                     <img src="{{ 'default-product-4.svg' | asset_url }}" alt="Product" width="274" height="304">
                 </div>
@@ -84,7 +84,7 @@
                     <div class="product-rating">
                         <div class="stars">
                             {% for i in (1..5) %}
-                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15"> 
+                                <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" width="15" height="15" class="glowing-star"> 
                             {% endfor %}
                         </div>
                         <p class="review-text">(5.0 of 800 Reviews)</p>
@@ -102,30 +102,30 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Título",
+      "label": "Title",
       "default": "Best Selling Products"
     }
   ],
   "blocks": [
     {
       "type": "product",
-      "name": "Produto",
+      "name": "Product",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Imagem do Produto (Tamanho recomendado: 274x304px)"
+          "label": "Product Image (Recommended size: 274x304px)"
         },
         {
           "type": "text",
           "id": "product_name",
-          "label": "Nome do Produto",
+          "label": "Product Name",
           "default": "Product Name"
         },
         {
           "type": "range",
           "id": "stars",
-          "label": "Número de Estrelas",
+          "label": "Number of Stars",
           "min": 1,
           "max": 5,
           "default": 5
@@ -133,13 +133,13 @@
         {
           "type": "text",
           "id": "rating",
-          "label": "Nota Média",
+          "label": "Average Rating",
           "default": "5.0"
         },
         {
           "type": "text",
           "id": "total_reviews",
-          "label": "Total de Avaliações",
+          "label": "Total Reviews",
           "default": "800"
         }
       ]
