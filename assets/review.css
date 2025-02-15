@@ -179,6 +179,10 @@
     .review-container {
         grid-template-columns: repeat(1, 1fr);
         gap: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .review-card {
@@ -187,7 +191,7 @@
     }
 
     .review-name {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .stars img {

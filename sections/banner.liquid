@@ -1,7 +1,6 @@
 {{ 'banner.css' | asset_url | stylesheet_tag }}
 
-<section 
-    class="banner" 
+<section class="banner"
     style="background-image: url('{% if section.settings.banner_image != blank %}{{ section.settings.banner_image | image_url }}{% else %}{{ 'default-banner.svg' | asset_url }}{% endif %}');">
     
     <div class="banner-content">
@@ -18,16 +17,30 @@
     </div>
 </section>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var banner = document.querySelector(".banner");
+
+        if (banner) {
+            var desktopBg = "{{ 'default-banner.svg' | asset_url }}";
+            var mobileBg = "{{ 'mobile-banner.svg' | asset_url }}";
+            function updateBannerBackground() {
+                if (window.innerWidth <= 768) {
+                    banner.style.backgroundImage = "url('" + mobileBg + "')";
+                } else {
+                    banner.style.backgroundImage = "url('" + desktopBg + "')";
+                }
+            }
+            updateBannerBackground();
+            window.addEventListener("resize", updateBannerBackground);
+        }
+    });
+</script>
+
 {% schema %}
 {
   "name": "Banner",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "banner_image",
-      "label": "Imagem do Banner",
-      "info": "Selecione uma imagem para o fundo do banner."
-    },
     {
       "type": "range",
       "id": "star_count",

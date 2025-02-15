@@ -3,54 +3,145 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0px 135px 30px;
+    padding: 0 30px 30px;
     gap: 35px;
     width: 100%;
-    background: linear-gradient(180deg, #FFFFFF 40.08%, #F6F5F5 98.05%);
+    background:linear-gradient(180deg, #fff 40.08%, #f6f5f5 98.05%)
 }
 
 .faqs-container {
     text-align: center;
     max-width: 1170px;
-    gap:35px;
+    gap:35px
 }
 
 .faqs-title {
-    font-family: 'DM Sans', sans-serif;
+    font-family: DM Sans, sans-serif;
     font-size: 36px;
     font-weight: 700;
     line-height: 120%;
-    color: #252525;
+    color:#252525
 }
 
-.faqs-text-container{
-  margin-top:35px;
+.faqs-text-container {
+    margin-top:35px
 }
 
 .faqs-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family: DM Sans, sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 100%;
     text-align: center;
     margin-bottom: -15px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.48) 8.0%, rgba(85, 85, 85, 0) 100%);
+    background: linear-gradient(180deg, #0000007a 8%, #5550);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color:transparent
 }
 
 .faqs-button {
-    font-family: 'DM Sans', sans-serif;
+    font-family: DM Sans, sans-serif;
     font-size: 20px;
     font-weight: 300;
     line-height: 100%;
     color: #000;
     text-decoration: underline;
-    transition: all 0.3s ease-in-out;
-    z-index: 2;
+    transition: all .3s ease-in-out;
+    z-index:2
 }
 
 .faqs-button:hover {
     color: #252525;
-    text-decoration: none;
+    text-decoration:none
+}
+
+@media (max-width: 1024px) {
+    .faqs-section {
+       display: flex;
+       justify-content: center;
+       align-items: center; 
+       padding: 0px 0px 30px;
+       gap: 30px;
+    }
+    
+    .faqs-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px
+    }
+    
+    .faqs-text-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .faqs-title {
+        font-size:32px
+    }
+
+    .faqs-text {
+        font-size: 18px;
+        max-width:90%
+    }
+
+    .faqs-button {
+        font-size:18px
+    }
+}
+
+@media (max-width: 768px) {
+    .faqs-section {
+        padding: 0 10px 20px;
+    }
+    
+    .faqs-container {
+        max-width:600px;
+    }
+
+    .faqs-title {
+        font-size:28px
+    }
+
+    .faqs-text {
+        font-size: 16px;
+        max-width:100%
+    }
+
+    .faqs-button {
+        font-size:16px
+    }
+}
+
+@media (max-width: 480px) {
+    .faqs-container {
+        max-width:400px;
+        gap:10px;
+    }
+
+    .faqs-title {
+        font-size:24px
+    }
+
+    .faqs-text-container {
+      margin-top:5px
+    }
+
+    .faqs-text {
+        font-size: 12px;
+        max-width:100%;
+    }
+
+    .faqs-tittle{
+       line-height: 10%;
+    }
+
+    .faqs-button {
+        font-size: 12px
+    }
 }

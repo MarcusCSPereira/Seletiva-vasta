@@ -2,26 +2,43 @@
 
 <section class="header">
     <div class="container">
-        <div class="left">
-            <a href="/">
-                <img 
-                    src="{% if section.settings.logo != blank %}{{ section.settings.logo | image_url }}{% else %}{{ 'logo.svg' | asset_url }}{% endif %}" 
-                    alt="Logo" 
-                    width="139.36" 
-                    height="42">
-            </a>
+        <!-- Linha superior: Menu, Logo e Carrinho -->
+        <div class="top-row">
+          <div class="left-menu-icon">
+            <!-- Ícone do Menu -->
+            <div class="menu-icon">
+                <button class="menu-toggle">
+                    <img src="{{ 'icon-menu.svg' | asset_url }}" alt="Menu" width="24" height="24">
+                </button>
+                <span>MENU</span>
+            </div>
+          </div>
+
+            <!-- Logo -->
+            <div class="left">
+                <a href="/">
+                    <img 
+                        src="{% if section.settings.logo != blank %}{{ section.settings.logo | image_url }}{% else %}{{ 'logo.svg' | asset_url }}{% endif %}" 
+                        alt="Logo" 
+                        width="139.36" 
+                        height="42">
+                </a>
+            </div>
+
+            <!-- Ícone do Carrinho -->
+            <div class="right">
+                {{ 'cart.css' | asset_url | stylesheet_tag }}
+                {% render 'cart-icon' %}
+            </div>
         </div>
-        <div class="center">
+
+        <!-- Linha inferior: Search Bar -->
+        <div class="bottom-row">
             {{ 'search-bar.css' | asset_url | stylesheet_tag }}
             {% render 'search-bar' %}
         </div>
-        <div class="right">
-            {{ 'cart.css' | asset_url | stylesheet_tag }}
-            {% render 'cart-icon' %}
-        </div>
     </div>
 </section>
-
 
 {% schema %}
 {

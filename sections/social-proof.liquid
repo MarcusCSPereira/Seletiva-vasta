@@ -14,28 +14,30 @@
     <div class="social-proof-comments">
         {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
-                <div class="comment">
-                    <div class="comment-persona">
-                        <img src="{% if block.settings.image %}{{ block.settings.image | image_url }}{% else %}{{ 'default-user-1.svg' | asset_url }}{% endif %}" 
-                             alt="{{ block.settings.name }}" class="comment-image" width="65" height="65">
-                        <div class="comment-text">
-                            <p class="comment-name">{% if block.settings.name != blank %}{{ block.settings.name }}{% else %}John R.{% endif %}</p>
-                            <div class="comment-stars">
-                                {% for i in (1..5) %}
-                                    {% if i <= block.settings.stars %}
-                                        <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
-                                    {% else %}
-                                        <img src="{{ 'star-empty.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
-                                    {% endif %}
-                                {% endfor %}
+                <div class="comment-{{ forloop.index }}">
+                    <div class="comment">
+                        <div class="comment-persona">
+                            <img src="{% if block.settings.image %}{{ block.settings.image | image_url }}{% else %}{{ 'default-user-1.svg' | asset_url }}{% endif %}" 
+                                 alt="{{ block.settings.name }}" class="comment-image" width="65" height="65">
+                            <div class="comment-text">
+                                <p class="comment-name">{% if block.settings.name != blank %}{{ block.settings.name }}{% else %}John R.{% endif %}</p>
+                                <div class="comment-stars">
+                                    {% for i in (1..5) %}
+                                        {% if i <= block.settings.stars %}
+                                            <img src="{{ 'star-group1.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                                        {% else %}
+                                            <img src="{{ 'star-empty.svg' | asset_url }}" alt="Star" class="star-icon" width="15" height="15">
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
+                        <p class="comment-review">{% if block.settings.text != blank %}{{ block.settings.text }}{% else %}Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio{% endif %}</p>
                     </div>
-                    <p class="comment-review">{% if block.settings.text != blank %}{{ block.settings.text }}{% else %}Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio{% endif %}</p>
                 </div>
             {% endfor %}
         {% else %}
-            <!-- Comentários padrão quando não há personalização -->
+          <div class="comment-1">
             <div class="comment">
                 <div class="comment-persona">
                     <img src="{{ 'default-user-1.svg' | asset_url }}" alt="John R." class="comment-image" width="65" height="65">
@@ -50,7 +52,9 @@
                 </div>
                 <p class="comment-review">Lorem ipsum dolor sit amet consectetur. Volutpat fames diam volutpat a. Ultricies lacinia eu cras massa odio.</p>
             </div>
+          </div>
 
+          <div class="comment-2">
             <div class="comment">
                 <div class="comment-persona">
                     <img src="{{ 'default-user-2.svg' | asset_url }}" alt="Jane D." class="comment-image" width="65" height="65">
@@ -66,6 +70,7 @@
                 </div>
                 <p class="comment-review">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
             </div>
+          </div>
         {% endif %}
     </div>
 </section>
@@ -131,7 +136,7 @@
       ]
     }
   ],
-  "max_blocks": 4,
+  "max_blocks": 2,
   "presets": [
     {
       "name": "Social Proof"
