@@ -190,6 +190,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width:40%
 }
 
@@ -259,6 +260,9 @@
 }
 
 .footer-payments-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 205px;
     margin-right: -150px;
     animation:fadeIn 1.5s ease-in-out
@@ -266,7 +270,7 @@
 
 .footer-payments {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex;
     gap:14px
 }
 
