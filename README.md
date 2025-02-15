@@ -108,8 +108,6 @@ Agora o tema estará disponível no seu painel da Shopify para ser publicado.
 ## 🎥 Demonstração do Projeto
 
 ![Demo do Projeto](example/example.gif)
-![Figma Design](example/figma.png)
-
 
 ## 📖 Relato sobre o projeto
 
@@ -135,9 +133,9 @@ Além disso, este desafio foi uma excelente oportunidade para testar minha lógi
 
 Caso tenha dúvidas ou queira trocar ideias, sinta-se à vontade para entrar em contato:
 
-📧 **Email:** [seu-email@example.com](contato.marcuscspereira@gmail.com)  
-💼 **LinkedIn:** [linkedin.com/in/seu-usuario](https://www.linkedin.com/in/marcuscspereira/)  
-📂 **Portfólio:** [seu-portfolio.com](https://marcuscspereira.netlify.app)
+📧 **Email:** [E-mail](contato.marcuscspereira@gmail.com)  
+💼 **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/marcuscspereira/)  
+📂 **Portfólio:** [Porfólio](https://marcuscspereira.netlify.app)
 
 ##
 
